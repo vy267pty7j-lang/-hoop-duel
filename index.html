@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hoop Duel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section id="lobby" class="panel">
+    <div class="ball-logo">🏀</div><h1>HOOP DUEL</h1><p class="sub">Real-time 1v1 basketball</p>
+    <button id="create">CREATE GAME</button>
+    <div class="or">OR</div>
+    <div class="join"><input id="code" maxlength="5" placeholder="ROOM CODE"><button id="join">JOIN</button></div>
+    <p id="error"></p>
+    <div class="controls"><b>Keyboard</b><span>A / D — Move</span><span>W — Jump</span><span>X — Shoot / Steal</span><span>Z — Dunk / Power Shot / Block</span></div>
+  </section>
+  <section id="waiting" class="panel hidden"><h2>ROOM <span id="roomCode"></span></h2><p>Send this code to your friend.</p><div class="loader"></div><p>Waiting for opponent…</p></section>
+  <section id="game" class="hidden">
+    <div class="hud"><div class="score blue"><span id="p1">0</span></div><div class="clock" id="clock">1:00</div><div class="score red"><span id="p2">0</span></div></div>
+    <canvas id="court" width="1200" height="650"></canvas>
+    <div class="meter"><span>POWER</span><div><i id="power"></i></div></div>
+    <p class="hint">A/D move · W jump · X shoot/steal · Z dunk/power/block</p>
+    <div id="end" class="overlay hidden"><div><h2 id="result">GAME OVER</h2><p id="final"></p><button id="restart">REMATCH</button></div></div>
+  </section>
+</div>
+<script src="/socket.io/socket.io.js"></script><script src="game.js"></script>
+</body></html>
